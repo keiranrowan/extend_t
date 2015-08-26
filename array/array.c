@@ -8,6 +8,10 @@ void array_init(array_t *array, GENERIC template)
 	array->capacity = 4;
 	array->template = template;
 	array->cargo = malloc(sizeof(template) * array->capacity);
+    
+    if (array->cargo == NULL) {
+        fprintf(stderr, "Memory Error: Unable to reallocate array")
+    }
 }
 
 void array_append(array_t *array, GENERIC value)
