@@ -24,7 +24,18 @@ typedef enum {
     BIGDATA
 } OPTIMIZATION;
 
+/* == Settings == */
+
 #define MODE PERFORMANCE
+
+#define PERFORMANCE_INITIAL_CAPACITY    4
+#define SIZE_INITIAL_CAPACITY           0
+#define BIGDATA_INITIAL_CAPACITY        4
+
+#define ERROR_MEMORY        "Memory Error: Unable to Obtain Memory for Allocation"
+#define ERROR_TYPE          "Type Error: Attempting to fit type of size %zd into slot of size %zd"
+#define ERROR_OPTIMIZATION  "Optimization Error: Mode not defined"
+#define ERROR_INDEX         "Index Error: Index out of bounds. Size: %d Attempted Index %d"
 
 /* == array_t Definition ==
  * capacity -> Used for memory allocation to prevent frequent realloc
@@ -32,6 +43,7 @@ typedef enum {
  * template -> Variable used to determine slot size
  * cargo    -> The array data
  */
+
 typedef struct {
 	int capacity;
 	int size;
