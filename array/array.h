@@ -38,10 +38,11 @@ typedef enum {
 #define BIGDATA_THRESHOLD               30000
 #define BIGDATA_INCREMENT               200
 
-#define ERROR_MEMORY        			"Memory Error: Unable to Obtain Memory for Allocation"
-#define ERROR_TYPE          			"Type Error: Attempting to fit type of size %zd into slot of size %zd"
-#define ERROR_OPTIMIZATION  			"Optimization Error: Mode not defined"
-#define ERROR_INDEX         			"Index Error: Index out of bounds. Size: %d Attempted Index: %d"
+#define ERROR_MEMORY                    "Memory Error: Unable to Obtain Memory for Allocation"
+#define ERROR_TYPE                      "Type Error: Attempting to fit type of size %zd into slot of size %zd"
+#define ERROR_OPTIMIZATION              "Optimization Error: Mode not defined"
+#define ERROR_INDEX                     "Index Error: Index out of bounds. Size: %d Attempted Index: %d"
+#define ERROR_CONCAT                    "Concat Error: Incompatable Types"
 
 /* == array_t Definition ==
  * capacity -> Used for memory allocation to prevent frequent realloc
@@ -62,7 +63,7 @@ typedef struct {
  * _append  -> Appends an Item to an Array
  * _set     -> Sets a value at a speicifed Index
  * _get     -> Returns the value at a specified Index
- * _concat  -> Concatenates Two Arrays
+ * _concat  -> Appends array B to array A
  * _insert  -> Inserts a value and pushes back array
  * _delete  -> Removes an item and pulls up array
  * _pop     -> Removes an item and returns its value
@@ -81,7 +82,7 @@ void array_set(array_t *array, int index, GENERIC value);
 
 GENERIC array_get(array_t *array, int index);
 
-// void array_concat(array_t *array, array_t *array);
+void array_concat(array_t *a, array_t *b);
 
 // void array_insert(array_t *array, int index, GENERIC value);
 

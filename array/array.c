@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "array.h"
+#include "string.h"
 
 void array_init(array_t *array, GENERIC template)
 {
@@ -37,6 +38,15 @@ GENERIC array_get(array_t *array, int index)
         fprintf(stderr, ERROR_INDEX "\n", array->size, index);
     }
     return array->cargo[index];
+}
+
+void array_concat(array_t *a, array_t *b)
+{
+    if (sizeof(a->template) == sizeof(b->template)) {
+        for (int i = 0 ; i < b->size ; i++) {
+            array_append(a, b->cargo[i]);
+        }
+    }
 }
 
 void array_set(array_t *array, int index, GENERIC value)
