@@ -38,10 +38,10 @@ typedef enum {
 #define BIGDATA_THRESHOLD               30000
 #define BIGDATA_INCREMENT               200
 
-#define ERROR_MEMORY        "Memory Error: Unable to Obtain Memory for Allocation"
-#define ERROR_TYPE          "Type Error: Attempting to fit type of size %zd into slot of size %zd"
-#define ERROR_OPTIMIZATION  "Optimization Error: Mode not defined"
-#define ERROR_INDEX         "Index Error: Index out of bounds. Size: %d Attempted Index: %d"
+#define ERROR_MEMORY        			"Memory Error: Unable to Obtain Memory for Allocation"
+#define ERROR_TYPE          			"Type Error: Attempting to fit type of size %zd into slot of size %zd"
+#define ERROR_OPTIMIZATION  			"Optimization Error: Mode not defined"
+#define ERROR_INDEX         			"Index Error: Index out of bounds. Size: %d Attempted Index: %d"
 
 /* == array_t Definition ==
  * capacity -> Used for memory allocation to prevent frequent realloc
