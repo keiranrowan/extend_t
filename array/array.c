@@ -16,7 +16,7 @@ void array_init(array_t *array, GENERIC template)
 	array->cargo = malloc(sizeof(template) * array->capacity);
     
     if (array->cargo == NULL) {
-        fprintf(stderr, ERROR_MEMORY "\n")
+        fprintf(stderr, ERROR_MEMORY "\n");
     }
 }
 
@@ -35,7 +35,6 @@ GENERIC array_get(array_t *array, int index)
 {
     if (index >= array->size || index < 0) {
         fprintf(stderr, ERROR_INDEX "\n", array->size, index);
-        return;
     }
     return array->cargo[index];
 }
@@ -56,10 +55,10 @@ void array_update_capacity(array_t *array)
 {
     if (MODE == PERFORMANCE) {
         if (array->size >= array->capacity) {
-            array->capacity *= 2;
+            array->capacity *= PERFORMANCE_EXPANSE_FACTOR;
             array->cargo = realloc(array->cargo, sizeof(array->template) * array->capacity);
             if (array->cargo == NULL) {
-                fprintf(stderr, ERROR_MEMORY "\n")
+                fprintf(stderr, ERROR_MEMORY "\n");
             }
         }
     } else if (MODE == SIZE) {
@@ -67,13 +66,25 @@ void array_update_capacity(array_t *array)
             array->capacity += 1;
             array->cargo = realloc(array->cargo, sizeof(array->template) * array->capacity);
             if (array->cargo == NULL) {
-                fprintf(stderr, ERROR_MEMORY "\n")
+                fprintf(stderr, ERROR_MEMORY "\n");
             }
         }
     } else if (MODE == BIGDATA) {
-        // TODO: Implement
+        if (array->size >= array->capacity && array->capacity <= BIGDATA_THRESHOLD) {
+            array->capacity *= BIGDATA_EXPANSE_FACTOR;
+            array->cargo = realloc(array->cargo, sizeof(array->template) * array->capacity);
+            if (array->cargo == NULL) {
+                fprintf(stderr, ERROR_MEMORY "\n");
+            }
+        } else if (array->size >= array->capacity && array->capacity > BIGDATA_THRESHOLD) {
+            array->capacity += BIGDATA_INCREMENT;
+            array->cargo = realloc(array->cargo, sizeof(array->template) * array->capacity);
+            if (array->cargo == NULL) {
+                fprintf(stderr, ERROR_MEMORY "\n");
+            }
+        }
     } else {
-        fprintf(stderr, ERROR_OPTIMIZATION "\n")
+        fprintf(stderr, ERROR_OPTIMIZATION "\n");
     }
     
 }
