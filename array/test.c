@@ -2,6 +2,7 @@
 #include "array.h"
 
 int main(void) {
+	// Array Init, Set, Append, and Free test
     /*
      array_t array;
 	int template = 0;
@@ -21,6 +22,8 @@ int main(void) {
     
     array_free(&array);
     */
+    // Array Concatenation Test
+    /*
     array_t a;
     int ta;
     array_init(&a, &ta);
@@ -51,6 +54,21 @@ int main(void) {
     
     array_free(&a);
     array_free(&b);
+    */
     
+    /*
+    array_t array;
+    int template;
+    array_init(&array, &template);
+    
+    array_append(&array, 1);
+    array_append(&array, 1);
+    array_append(&array, 1);
+    array_append(&array, 1);
+    array_append(&array, 1);
+    
+    array_insert(&array, 1, 1);
+    
+    */
     
 }
