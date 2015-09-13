@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "array.h"
-#include "string.h"
 
 void array_init(array_t *array, GENERIC template)
 {
@@ -47,6 +46,11 @@ void array_concat(array_t *a, array_t *b)
             array_append(a, b->cargo[i]);
         }
     }
+}
+
+void array_insert(array_t *array, int index, GENERIC value)
+{
+    
 }
 
 void array_set(array_t *array, int index, GENERIC value)

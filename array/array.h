@@ -86,7 +86,7 @@ void array_concat(array_t *a, array_t *b);
 
 // void array_insert(array_t *array, int index, GENERIC value);
 
-// void array_insert(array_t *array, int index);
+// void array_delete(array_t *array, int index);
 
 // GENERIC array_pop(array_t *array, int index);
 
