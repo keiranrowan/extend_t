@@ -1,6 +1,8 @@
 # extend_t
 extend_t is a set of dynamic types for C
 
+![](https://travis-ci.com/keiranrowan/utils.h.svg?branch=master)
+
 ## Array
 
 ```C
