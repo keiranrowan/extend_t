@@ -1,7 +1,7 @@
 # extend_t
 extend_t is a set of dynamic types for C
 
-![](https://travis-ci.com/keiranrowan/utils.h.svg?branch=master)
+![](https://travis-ci.com/keiranrowan/utils.h.svg?branch=master) ![](https://img.shields.io/codacy/grade/24147cd349c8416497d29a92cd65975b) ![](https://img.shields.io/github/license/keiranrowan/extend_t) ![](https://img.shields.io/github/languages/code-size/keiranrowan/extend_t) ![](https://img.shields.io/github/languages/top/keiranrowan/extend_t)
 
 ## Array
 
