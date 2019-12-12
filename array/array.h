@@ -43,6 +43,7 @@ typedef enum {
 #define ERROR_OPTIMIZATION              "Optimization Error: Mode not defined"
 #define ERROR_INDEX                     "Index Error: Index out of bounds. Size: %d Attempted Index: %d"
 #define ERROR_CONCAT                    "Concat Error: Incompatable Types"
+#define ERROR_OOB			"Out of Bounds Error: Invalid argument"
 
 /* == array_t Definition ==
  * capacity -> Used for memory allocation to prevent frequent realloc
@@ -52,16 +53,16 @@ typedef enum {
  */
 
 typedef struct {
-	int capacity;
-	int size;
-    GENERIC template;
+	unsigned int capacity;
+	unsigned int size;
+    	GENERIC template;
 	GENERIC *cargo;
 } array_t;
 
 /* == Array Operations ==
  * _init    -> Initializes memory for an Array
  * _append  -> Appends an Item to an Array
- * _set     -> Sets a value at a speicifed Index
+ * _set     -> Sets a value at a specified Index
  * _get     -> Returns the value at a specified Index
  * _concat  -> Appends array B to array A
  * _insert  -> Inserts a value and pushes back array
@@ -69,6 +70,13 @@ typedef struct {
  * _pop     -> Removes an item and returns its value
  * _promote -> Converts a C Array to an array_t
  * _demote  -> Converts an array_t to a C Array
+ * _shift   -> Shifts the array left or right
+ * _sort    -> Performs an ascending bubble sort on the array
+ * _zsort   -> Performs a descending bubble sort on the array
+ * _swap    -> Swaps two array items
+ * _shuffle -> Randomizes array item indexes
+ * _reverse -> Returns the array in reverse order
+ * _splice  -> Returns a section of the array
  * _free    -> Cleans up memory allocated by array
  * _length  -> Returns the length of an array
  * _type    -> Returns the type of an array
@@ -93,6 +101,18 @@ void array_concat(array_t *a, array_t *b);
 // void array_demote(array_t *array, GENERIC *array);
 
 // void array_promote(GENERIC *array, array_t array);
+
+// void array_shift(array_t *array, int offset);
+
+// void array_sort(array_t);
+
+// void array_zsort(array_t);
+
+// void array_swap(array_t, int a, int b);
+
+// void array_shuffle(array_t);
+
+// array_t array_splice(array_t, int a, int b);
 
 void array_free(array_t *array);
 
