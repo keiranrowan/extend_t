@@ -2,6 +2,5 @@ language: c
 os:
 - linux
 - osx
-compiler:
-  - clang
-  - gcc
+script:
+  - gcc -o test array/array.c array/array.h array/test.c
