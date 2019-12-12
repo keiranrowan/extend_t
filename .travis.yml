@@ -1,6 +1,5 @@
 language: c
 os:
 - linux
-- osx
 script:
   - gcc -o test array/array.c array/array.h array/test.c
