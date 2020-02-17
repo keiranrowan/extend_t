@@ -11,31 +11,24 @@ extend_t is a set of dynamic types for C
 
 #### Functions
 ```
- _init    -> (array, template)     -> Initializes memory for an Array
- _append  -> (array, value)        -> Appends an Item to an Array
- _set     -> (array, index, value) -> Sets a value at a specified Index
- _get     -> (array, index)        -> Returns the value at a specified Index
- _concat  -> (array A, array B)    -> Appends array B to array A
- _insert  -> (array, index, value) -> Inserts a value and pushes back array
- _delete  -> (array, index)        -> Removes an item and pulls up array
- _pop     -> (array, index)        -> Removes an item and returns its value
- _shift   -> (array, +/-offset)    -> Shifts the array left or right
- _sort    -> (array)               -> Performs an ascending sort on the array
- _zsort   -> (array)               -> Performs a descending bubble sort on the array
- _swap    -> (array, index, index) -> Swaps two array items
- _shuffle -> (array)               -> Randomizes array item indexes
- _reverse -> (array)               -> Reverses the array
- _shift   -> (array, +/-offset)    -> Shifts the array left or right
- _rsort   -> (array)               -> RETURNS an ascending sorted array
- _rzsort  -> (array)               -> Returns a descending sorted array
- _rswap   -> (array, index, index) -> Returns an array with two swapped array items
- _rshuffle-> (array)               -> Returns an array with randomized items
- _rreverse-> (array)               -> Returns a reversed array
- _rshift  -> (array, +/-offset)    -> Returns a shifted array
- _splice  -> (array, array B, a, b)-> Sets Array B to Array subsection [a, b] inclusive
- _free    -> (array)               -> Cleans up memory allocated by array
- _length  -> (array)               -> Returns the length of an array
- _type    -> (array)               -> Returns the type of an array
+[X] _init    -> (array, template)     -> Initializes memory for an Array
+[X] _append  -> (array, value)        -> Appends an Item to an Array
+[X] _set     -> (array, index, value) -> Sets a value at a specified Index
+[X] _get     -> (array, index)        -> Returns the value at a specified Index
+[X] _concat  -> (array A, array B)    -> Appends array B to array A
+[X] _insert  -> (array, index, value) -> Inserts a value and pushes back array
+[X] _delete  -> (array, index)        -> Removes an item and pulls up array
+[X] _pop     -> (array, index)        -> Removes an item and returns its value
+[ ] _shift   -> (array, +/-offset)    -> Shifts the array left or right
+[ ] _sort    -> (array)               -> Performs an ascending sort on the array
+[ ] _zsort   -> (array)               -> Performs a descending bubble sort on the array
+[X] _swap    -> (array, index, index) -> Swaps two array items
+[ ] _shuffle -> (array)               -> Randomizes array item indexes
+[ ] _reverse -> (array)               -> Reverses the array
+[X] _splice  -> (array, array B, a, b)-> Sets Array B to Array subsection [a, b] inclusive
+[X] _free    -> (array)               -> Cleans up memory allocated by array
+[X] _length  -> (array)               -> Returns the length of an array
+[X] _type    -> (array)               -> Returns the type of an array
 ```
 
 #### Example: Init, Append, Set, Get, Insert, Delete, Pop
