@@ -19,7 +19,6 @@ extend_t is a set of dynamic types for C
 [X] _insert  -> (array, index, value) -> Inserts a value and pushes back array
 [X] _delete  -> (array, index)        -> Removes an item and pulls up array
 [X] _pop     -> (array, index)        -> Removes an item and returns its value
-[ ] _shift   -> (array, +/-offset)    -> Shifts the array left or right
 [X] _swap    -> (array, index, index) -> Swaps two array items
 [X] _shuffle -> (array)               -> Randomizes array item indexes
 [X] _reverse -> (array)               -> Reverses the array
@@ -73,7 +72,7 @@ printf("%d\n", (int)array_pop(&array, 2));
 array_free(&array);
 ```
 
-#### Example: shuffle, sort, swap, shift, reverse
+#### Example: shuffle, sort, swap, reverse
 ```C
 // Create New Array
 array_t array;
@@ -95,9 +94,6 @@ array_shuffle(&array);
 
 // Swap 0 and 6
 array_swap(&array, 0, 6);
-
-// Shift Array 2 Indices Right 
-array_shift(&array, 2);
 
 array_sort(&array);
 

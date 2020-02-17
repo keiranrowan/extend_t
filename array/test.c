@@ -26,6 +26,8 @@ int main(void) {
 
     array_shuffle(&array);
 
+    printf("\n%d\n", (int)array_pop(&array, 4));
+
     printf(" %d { ", array_length(&array));
     for (int i = 0; i < array_length(&array); i++) {
         //printf("%d\n", array.cargo[i]);

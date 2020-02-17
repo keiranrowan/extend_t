@@ -67,7 +67,6 @@ void array_concat(array_t *a, array_t *b);
 void array_insert(array_t *array, int index, GENERIC value);
 void array_delete(array_t *array, int index);
 GENERIC array_pop(array_t *array, int index);
-// void array_shift(array_t *array, int offset);
 void array_swap(array_t *array, int a, int b);
 void array_shuffle(array_t* array);
 void array_reverse(array_t *array);
