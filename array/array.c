@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "array.h"
 
 void array_init(array_t *array, GENERIC template) {
@@ -53,19 +54,31 @@ void array_concat(array_t *a, array_t *b) {
         for (int i = 0; i < b->size; i++) {
             array_append(a, b->cargo[i]);
         }
+    } else {
+        fprintf(stderr, ERROR_CONCAT "\n");
     }
 }
 
 void array_insert(array_t *array, int index, GENERIC value) {
-    array_append(array, NULL);
-    int i = array_length(array) - 2;
-    for (i; i >= index; i--) {
-        array_set(array, i + 1, array->cargo[i]);
+    if (index > array->size || index < 0) {
+        fprintf(stderr, ERROR_INDEX "\n", array->size, index);
     }
-    array_set(array, index, value);
+    if (sizeof(value) == sizeof(array->template)) {
+        array_append(array, NULL);
+        int i = array_length(array) - 2;
+        for (i; i >= index; i--) {
+            array_set(array, i + 1, array->cargo[i]);
+        }
+        array_set(array, index, value);
+    } else {
+        fprintf(stderr, ERROR_TYPE "\n", sizeof(value), sizeof(array->template));
+    }
 }
 
 void array_delete(array_t *array, int index) {
+    if (index > array->size || index < 0) {
+        fprintf(stderr, ERROR_INDEX "\n", array->size, index);
+    }
     for (int i = index + 1; i < array->size; i++) {
         array_set(array, i - 1, array->cargo[i]);
     }
@@ -74,22 +87,58 @@ void array_delete(array_t *array, int index) {
 }
 
 GENERIC array_pop(array_t *array, int index) {
-    int val = array->cargo[index];
+    if (index > array->size || index < 0) {
+        fprintf(stderr, ERROR_INDEX "\n", array->size, index);
+    }
+    GENERIC val = array->cargo[index];
     array_delete(array, index);
     return val;
 }
 
 void array_swap(array_t *array, int a, int b) {
+    if (a > array->size || a < 0) {
+        fprintf(stderr, ERROR_INDEX "\n", array->size, a);
+    } else if (b > array->size || b < 0) {
+        fprintf(stderr, ERROR_INDEX "\n", array->size, b);
+    }
     GENERIC temp = array_get(array, a);
     array_set(array, a, array_get(array, b));
     array_set(array, b, temp);
 }
 
 void array_splice(array_t *in, array_t *out, int a, int b) {
+    if (a > in->size || a < 0) {
+        fprintf(stderr, ERROR_INDEX "\n", in->size, a);
+    } else if (b > in->size || b < 0) {
+        fprintf(stderr, ERROR_INDEX "\n", in->size, b);
+    }
+    if (sizeof(in->template) == sizeof(out->template)) {
+        int i = 0;
+        for (a; a <= b; a++) {
+            array_set(out, i, array_get(in, a));
+            i++;
+        }
+    } else {
+        fprintf(stderr, ERROR_TYPE "\n", sizeof(in->template), sizeof(out->template));
+    }
+}
+
+void array_reverse(array_t *array) {
     int i = 0;
-    for ( a; a <= b; a++) {
-        array_set(out, i, array_get(in, a));
-        i++;
+    int j = array_length(array) - 1;
+    for (i; i != j; i++) {
+        array_swap(array, i, j);
+        j--;
+    }
+}
+
+void array_shuffle(array_t *array) {
+    srand(time(NULL));
+    int iter = 20;
+    for (int i = 0; i < iter; i++) {
+        int r = rand() % (array_length(array) - 1);
+        int n = rand() % (array_length(array) - 1);
+        array_swap(array, r, n);
     }
 }
 

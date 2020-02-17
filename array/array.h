@@ -1,10 +1,6 @@
 #ifndef __array_h__
 #define __array_h__
 
-#pragma GCC message "Compiling" __FILE__ "..."
-#pragma GCC diagnostic ignored "-Wpointer-to-int-cast"
-#pragma GCC diagnostic ignored "-Wint-conversion"
-
 #define GENERIC void*
 
 /* == OPTIMIZATION Definition ==
@@ -63,27 +59,6 @@ typedef struct {
 	GENERIC *cargo;
 } array_t;
 
-/* == Array Operations ==
- * _init    -> Initializes memory for an Array
- * _append  -> Appends an Item to an Array
- * _set     -> Sets a value at a specified Index
- * _get     -> Returns the value at a specified Index
- * _concat  -> Appends array B to array A
- * _insert  -> Inserts a value and pushes back array
- * _delete  -> Removes an item and pulls up array
- * _pop     -> Removes an item and returns its value
- * _shift   -> Shifts the array left or right
- * _sort    -> Performs an ascending bubble sort on the array
- * _zsort   -> Performs a descending bubble sort on the array
- * _swap    -> Swaps two array items
- * _shuffle -> Randomizes array item indexes
- * _reverse -> Returns the array in reverse order
- * _splice  -> Returns a section of the array
- * _free    -> Cleans up memory allocated by array
- * _length  -> Returns the length of an array
- * _type    -> Returns the type of an array
- */
-
 void array_init(array_t *array, GENERIC template);
 void array_append(array_t *array, GENERIC value);
 void array_set(array_t *array, int index, GENERIC value);
@@ -93,10 +68,9 @@ void array_insert(array_t *array, int index, GENERIC value);
 void array_delete(array_t *array, int index);
 GENERIC array_pop(array_t *array, int index);
 // void array_shift(array_t *array, int offset);
-// void array_sort(array_t);
-// void array_zsort(array_t);
 void array_swap(array_t *array, int a, int b);
-// void array_shuffle(array_t);
+void array_shuffle(array_t* array);
+void array_reverse(array_t *array);
 void array_splice(array_t *in, array_t *out, int a, int b);
 void array_free(array_t *array);
 int array_length(array_t *array);

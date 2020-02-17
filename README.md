@@ -20,15 +20,17 @@ extend_t is a set of dynamic types for C
 [X] _delete  -> (array, index)        -> Removes an item and pulls up array
 [X] _pop     -> (array, index)        -> Removes an item and returns its value
 [ ] _shift   -> (array, +/-offset)    -> Shifts the array left or right
-[ ] _sort    -> (array)               -> Performs an ascending sort on the array
-[ ] _zsort   -> (array)               -> Performs a descending bubble sort on the array
 [X] _swap    -> (array, index, index) -> Swaps two array items
-[ ] _shuffle -> (array)               -> Randomizes array item indexes
-[ ] _reverse -> (array)               -> Reverses the array
+[X] _shuffle -> (array)               -> Randomizes array item indexes
+[X] _reverse -> (array)               -> Reverses the array
 [X] _splice  -> (array, array B, a, b)-> Sets Array B to Array subsection [a, b] inclusive
 [X] _free    -> (array)               -> Cleans up memory allocated by array
 [X] _length  -> (array)               -> Returns the length of an array
 [X] _type    -> (array)               -> Returns the type of an array
+
+To Be Added After _Generic Implementation: 
+[ ] _sort    -> (array)               -> Performs an ascending sort on the array
+[ ] _zsort   -> (array)               -> Performs a descending bubble sort on the array
 ```
 
 #### Example: Init, Append, Set, Get, Insert, Delete, Pop
