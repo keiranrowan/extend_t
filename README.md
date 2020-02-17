@@ -1,4 +1,7 @@
 # extend_t
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/24147cd349c8416497d29a92cd65975b)](https://app.codacy.com/manual/keiranrowan/extend_t?utm_source=github.com&utm_medium=referral&utm_content=keiranrowan/extend_t&utm_campaign=Badge_Grade_Dashboard)
+
 extend_t is a set of dynamic types for C
 
 ![](https://travis-ci.com/keiranrowan/extend_t.svg?branch=master) ![](https://img.shields.io/codacy/grade/24147cd349c8416497d29a92cd65975b) ![](https://img.shields.io/github/license/keiranrowan/extend_t) ![](https://img.shields.io/github/languages/code-size/keiranrowan/extend_t) ![](https://img.shields.io/github/languages/top/keiranrowan/extend_t)
