@@ -43,7 +43,7 @@ typedef enum {
 #define BIGDATA_INCREMENT               200
 
 #define ERROR_MEMORY                    "Memory Error: Unable to Obtain Memory for Allocation"
-#define ERROR_TYPE                      "Type Error: Attempting to fit type of size %zd into slot of size %ul"
+#define ERROR_TYPE                      "Type Error: Attempting to fit type of size %zd into slot of size %lu"
 #define ERROR_OPTIMIZATION              "Optimization Error: Mode not defined"
 #define ERROR_INDEX                     "Index Error: Index out of bounds. Size: %u Attempted Index: %d"
 #define ERROR_CONCAT                    "Concat Error: Incompatible Types"
@@ -72,8 +72,6 @@ typedef struct {
  * _insert  -> Inserts a value and pushes back array
  * _delete  -> Removes an item and pulls up array
  * _pop     -> Removes an item and returns its value
- * _promote -> Converts a C Array to an array_t
- * _demote  -> Converts an array_t to a C Array
  * _shift   -> Shifts the array left or right
  * _sort    -> Performs an ascending bubble sort on the array
  * _zsort   -> Performs a descending bubble sort on the array
@@ -92,16 +90,14 @@ void array_set(array_t *array, int index, GENERIC value);
 GENERIC array_get(array_t *array, int index);
 void array_concat(array_t *a, array_t *b);
 void array_insert(array_t *array, int index, GENERIC value);
-// void array_delete(array_t *array, int index);
-// GENERIC array_pop(array_t *array, int index);
-// void array_demote(array_t *array, GENERIC *array);
-// void array_promote(GENERIC *array, array_t array);
+void array_delete(array_t *array, int index);
+GENERIC array_pop(array_t *array, int index);
 // void array_shift(array_t *array, int offset);
 // void array_sort(array_t);
 // void array_zsort(array_t);
-// void array_swap(array_t, int a, int b);
+void array_swap(array_t *array, int a, int b);
 // void array_shuffle(array_t);
-// array_t array_splice(array_t, int a, int b);
+void array_splice(array_t *in, array_t *out, int a, int b);
 void array_free(array_t *array);
 int array_length(array_t *array);
 GENERIC array_type(array_t *array);

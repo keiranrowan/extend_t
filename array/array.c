@@ -66,7 +66,31 @@ void array_insert(array_t *array, int index, GENERIC value) {
 }
 
 void array_delete(array_t *array, int index) {
+    for (int i = index + 1; i < array->size; i++) {
+        array_set(array, i - 1, array->cargo[i]);
+    }
+    array->size--;
+    array->cargo = realloc(array->cargo, sizeof(array->template) * array->size + 1);
+}
 
+GENERIC array_pop(array_t *array, int index) {
+    int val = array->cargo[index];
+    array_delete(array, index);
+    return val;
+}
+
+void array_swap(array_t *array, int a, int b) {
+    GENERIC temp = array_get(array, a);
+    array_set(array, a, array_get(array, b));
+    array_set(array, b, temp);
+}
+
+void array_splice(array_t *in, array_t *out, int a, int b) {
+    int i = 0;
+    for ( a; a <= b; a++) {
+        array_set(out, i, array_get(in, a));
+        i++;
+    }
 }
 
 void array_free(array_t *array) {
