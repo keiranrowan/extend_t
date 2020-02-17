@@ -98,7 +98,7 @@ for (int i = 0 ; i < 10 ; i++) {
 array_reverse(&array);
 
 // Shuffle It
-array_shhuffle(&array);
+array_shuffle(&array);
 
 // Swap 0 and 6
 array_swap(&array, 0, 6);
