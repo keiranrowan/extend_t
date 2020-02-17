@@ -1,7 +1,7 @@
 # extend_t
 extend_t is a set of dynamic types for C
 
-![](https://travis-ci.com/keiranrowan/extend_t.svg?branch=master) ![](https://img.shields.io/codacy/grade/24147cd349c8416497d29a92cd65975b) ![](https://img.shields.io/github/license/keiranrowan/extend_t) ![](https://img.shields.io/github/languages/code-size/keiranrowan/extend_t) ![](https://img.shields.io/github/languages/top/keiranrowan/extend_t)
+![](https://travis-ci.com/keiranrowan/extend_t.svg?branch=master) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3740545cf1754cf1b5038eb21028bf24)](https://www.codacy.com/manual/keiranrowan/extend_t?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=keiranrowan/extend_t&amp;utm_campaign=Badge_Grade) ![](https://img.shields.io/github/license/keiranrowan/extend_t) ![](https://img.shields.io/github/languages/code-size/keiranrowan/extend_t) ![](https://img.shields.io/github/languages/top/keiranrowan/extend_t)
 
 #### Future Updates
  - Implement C11 _Generic instead of Void Pointers
