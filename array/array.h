@@ -1,6 +1,10 @@
 #ifndef __array_h__
 #define __array_h__
 
+#pragma GCC message "Compiling" __FILE__ "..."
+#pragma GCC diagnostic ignored "-Wpointer-to-int-cast"
+#pragma GCC diagnostic ignored "-Wint-conversion"
+
 #define GENERIC void*
 
 /* == OPTIMIZATION Definition ==
@@ -42,8 +46,8 @@ typedef enum {
 #define ERROR_TYPE                      "Type Error: Attempting to fit type of size %zd into slot of size %zd"
 #define ERROR_OPTIMIZATION              "Optimization Error: Mode not defined"
 #define ERROR_INDEX                     "Index Error: Index out of bounds. Size: %d Attempted Index: %d"
-#define ERROR_CONCAT                    "Concat Error: Incompatable Types"
-#define ERROR_OOB			"Out of Bounds Error: Invalid argument"
+#define ERROR_CONCAT                    "Concat Error: Incompatible Types"
+#define ERROR_OOB                        "Out of Bounds Error: Invalid argument"
 
 /* == array_t Definition ==
  * capacity -> Used for memory allocation to prevent frequent realloc
@@ -55,7 +59,7 @@ typedef enum {
 typedef struct {
 	unsigned int capacity;
 	unsigned int size;
-    	GENERIC template;
+	GENERIC template;
 	GENERIC *cargo;
 } array_t;
 
@@ -83,43 +87,24 @@ typedef struct {
  */
 
 void array_init(array_t *array, GENERIC template);
-
-void array_append(array_t *array, GENERIC  value);
-
+void array_append(array_t *array, GENERIC value);
 void array_set(array_t *array, int index, GENERIC value);
-
 GENERIC array_get(array_t *array, int index);
-
 void array_concat(array_t *a, array_t *b);
-
-// void array_insert(array_t *array, int index, GENERIC value);
-
+void array_insert(array_t *array, int index, GENERIC value);
 // void array_delete(array_t *array, int index);
-
 // GENERIC array_pop(array_t *array, int index);
-
 // void array_demote(array_t *array, GENERIC *array);
-
 // void array_promote(GENERIC *array, array_t array);
-
 // void array_shift(array_t *array, int offset);
-
 // void array_sort(array_t);
-
 // void array_zsort(array_t);
-
 // void array_swap(array_t, int a, int b);
-
 // void array_shuffle(array_t);
-
 // array_t array_splice(array_t, int a, int b);
-
 void array_free(array_t *array);
-
 int array_length(array_t *array);
-
 GENERIC array_type(array_t *array);
-
 void array_update_capacity(array_t *array);
 
 #endif

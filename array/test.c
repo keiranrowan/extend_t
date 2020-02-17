@@ -2,73 +2,40 @@
 #include "array.h"
 
 int main(void) {
-	// Array Init, Set, Append, and Free test
-    /*
-     array_t array;
+    // Create New Array
+	array_t array;
+
+	// Initialize with Template Type int
 	int template = 0;
 	array_init(&array, &template);
 
+	// Set Index 0 to 1
     array_set(&array, 0, 1);
-    
-    for (int i = 0 ; i < 200 ; i++) {
-        array_append(&array, 69);
+    array_set(&array, 1, 2);
+    array_set(&array, 2, 3);
+
+    // Append the Number 7 10 Times
+    for (int i = 0 ; i < 10 ; i++) {
+        array_append(&array, 7);
     }
-    
-    
-    
-    printf("%d\n", (int)array_get(&array, 0));
-    printf("%d\n", (int)array_get(&array, 200));
-    printf("%d\n", (int)array_get(&array, 201));
-    
+
+    printf(" %d { ", array_length(&array));
+    for (int i = 0; i < array_length(&array); i++) {
+        //printf("%d\n", array.cargo[i]);
+        printf("%d, ", (int)array_get(&array, i));
+    }
+    printf("}\n");
+
+    array_insert(&array, 1, 123456);
+
+    // Print Values
+    printf(" %d { ", array_length(&array));
+    for (int i = 0; i < array_length(&array); i++) {
+        //printf("%d\n", array.cargo[i]);
+        printf("%d, ", (int)array_get(&array, i));
+    }
+    printf("}\n");
+
+    // Free the Array
     array_free(&array);
-    */
-    // Array Concatenation Test
-    /*
-    array_t a;
-    int ta;
-    array_init(&a, &ta);
-    
-    array_t b;
-    int tb;
-    array_init(&b, &tb);
-    
-    array_append(&a, 1);
-    array_append(&a, 1);
-    array_append(&a, 1);
-    array_append(&a, 1);
-    array_append(&a, 1);
-    array_append(&a, 1);
-    
-    array_append(&b, 2);
-    array_append(&b, 2);
-    array_append(&b, 2);
-    array_append(&b, 2);
-    array_append(&b, 2);
-    array_append(&b, 2);
-    
-    array_concat(&a, &b);
-    
-    for (int i = 0 ; i < a.size ; i++) {
-        printf("%d", (int)array_get(&a, i));
-    }
-    
-    array_free(&a);
-    array_free(&b);
-    */
-    
-    /*
-    array_t array;
-    int template;
-    array_init(&array, &template);
-    
-    array_append(&array, 1);
-    array_append(&array, 1);
-    array_append(&array, 1);
-    array_append(&array, 1);
-    array_append(&array, 1);
-    
-    array_insert(&array, 1, 1);
-    
-    */
-    
 }
